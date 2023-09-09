@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 880px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  box-sizing: border-box;
+}
+@media screen and (max-width: 1050px) {
+    .header {
+        max-width: 752px;
+      }
+}
+@media screen and (max-width: 790px) {
+    .header {
+        max-width: 512px;
+      }
+}
+@media screen and (max-width: 530px) {
+    .header {
+        max-width: 320px;
+      }
+}

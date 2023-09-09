@@ -1,0 +1,5 @@
+.header__auth-info {
+  display: flex;
+  align-items: flex-start;
+  margin: 6px 0 0 0;
+}

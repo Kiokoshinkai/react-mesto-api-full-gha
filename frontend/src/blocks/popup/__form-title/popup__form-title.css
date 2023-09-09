@@ -1,0 +1,16 @@
+.popup__form-title {
+  max-width: 330px;
+  width: 100%;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 54px 0;
+}
+@media screen and (max-width: 530px) {
+    .popup__form-title {
+        max-width: 238px;
+        font-size: 18px;
+        line-height: 1.22;
+        margin: 0 0 75px 0;
+      }
+}

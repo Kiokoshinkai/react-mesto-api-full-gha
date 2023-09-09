@@ -1,0 +1,27 @@
+.profile__info {
+  display: grid;
+  align-items: flex-end;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    "title edit-btn"
+    "status .";
+  margin: 0 auto 0 30px;
+  max-width: calc(880px - 120px - 150px - 30px - 10px);
+}
+@media screen and (max-width: 1050px) {
+  .profile__info {
+      max-width: calc(752px - 120px - 150px - 30px - 10px);
+    }
+}
+@media screen and (max-width: 790px) {
+  .profile__info {
+      margin: 0 0 36px 0;
+    }
+}
+@media screen and (max-width: 530px) {
+  .profile__info {
+      margin-left: calc(65px - 35px);
+      max-width: 282px;
+    }
+}

@@ -1,0 +1,22 @@
+.card__image {
+  height: 282px;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  cursor: pointer;
+}
+@media screen and (max-width: 1050px) {
+  .card__image {
+    height: 371px;
+    }
+}
+@media screen and (max-width: 790px) {
+  .card__image {
+    height: 496px;
+    }
+}
+@media screen and (max-width: 530px) {
+  .card__image {
+    height: 282px;
+    }
+}
