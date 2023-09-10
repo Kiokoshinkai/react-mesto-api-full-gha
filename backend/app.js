@@ -8,7 +8,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
-const { PORT = 3000, DB_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
+const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
 const { login, createUser } = require('./controllers/users');
 const urlRegex = require('./utils/regex');
@@ -22,6 +22,10 @@ mongoose.connect(DB_URL, {
 });
 
 const allowedOrigins = [
+  'https://gammervvfront.nomoredomainsicu.ru',
+  'https://gammervvback.nomoredomainsicu.ru',
+  'http://gammervvfront.nomoredomainsicu.ru',
+  'http://gammervvback.nomoredomainsicu.ru',
   'localhost:3000',
 ];
 

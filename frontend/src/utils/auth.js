@@ -8,7 +8,7 @@ function getResponseData(res) {
 }
 
 //Базовый URL
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://gammervvback.nomoredomainsicu.ru";
 
 //регистрация
 export function register(email, password) {

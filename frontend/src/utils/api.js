@@ -1,10 +1,10 @@
-const token = "30890c08-2ed4-44b3-b5d6-ec734b5a14d4";
-const url = "https://mesto.nomoreparties.co/v1/cohort-66/";
+//const token = "30890c08-2ed4-44b3-b5d6-ec734b5a14d4";
+//const url = "https://gammervvback.nomoredomainsicu.ru";
 
 class Api {
-  constructor(token, url) {
-    this._token = token;
-    this._url = url;
+  constructor(settings) {
+    this._headers = settings.headers;
+    this._url = settings.url;
   }
 
   _getResponseData(res) {
@@ -15,69 +15,69 @@ class Api {
     }
   }
 
+  _getHeaders() {
+    const jwt = localStorage.getItem('jwt');
+
+    return {
+      'Authorization': `Bearer ${jwt}`,
+      ...this._headers,
+    };
+  }
+
   getUserData() {
     return fetch(this._url + `users/me`, {
-      headers: {
-        authorization: this._token,
-      },
-    }).then(this._getResponseData);
+      headers: this._getHeaders(),
+    })
+    .then(res => this._getResponseData(res));
   }
 
   getInitialCards() {
     return fetch(this._url + `cards`, {
-      headers: {
-        authorization: this._token,
-      },
-    }).then(this._getResponseData);
+      headers: this._getHeaders(),
+    })
+    .then(res => this._getResponseData(res));
   }
 
   editProfile(input) {
     return fetch(this._url + `users/me`, {
       method: "PATCH",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
+      headers: this._getHeaders(),
       body: JSON.stringify(input),
-    }).then(this._getResponseData);
+    })
+    .then(res => this._getResponseData(res));
   }
 
   addCard(input) {
     return fetch(this._url + `cards`, {
       method: "POST",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
+      headers: this._getHeaders(),
       body: JSON.stringify(input),
-    }).then(this._getResponseData);
+    })
+    .then(res => this._getResponseData(res));
   }
 
   deleteCard(id) {
     return fetch(this._url + `cards/${id}`, {
       method: "DELETE",
-      headers: {
-        authorization: this._token,
-      },
-    }).then(this._getResponseData);
+      headers: this._getHeaders(),
+    })
+    .then(res => this._getResponseData(res));
   }
 
   deleteLike(id) {
     return fetch(this._url + `cards/${id}/likes`, {
       method: "DELETE",
-      headers: {
-        authorization: this._token,
-      },
-    }).then(this._getResponseData);
+      headers: this._getHeaders(),
+    })
+    .then(res => this._getResponseData(res));
   }
 
   addLike(id) {
     return fetch(this._url + `cards/${id}/likes`, {
       method: "PUT",
-      headers: {
-        authorization: this._token,
-      },
-    }).then(this._getResponseData);
+      headers: this._getHeaders(),
+    })
+    .then(res => this._getResponseData(res));
   }
 
   //для управления лайками
@@ -91,15 +91,17 @@ class Api {
   editAvatar(data) {
     return fetch(this._url + `users/me/avatar`, {
       method: "PATCH",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
+      headers: this._getHeaders(),
       body: JSON.stringify({ avatar: data }),
-    }).then(this._getResponseData);
+    }).then(res => this._getResponseData(res));
   }
 }
 
-const api = new Api(token, url); //вызов класса api
+const api = new Api({
+  url: 'https://gammervvback.nomoredomainsicu.ru',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+}); //вызов класса api
 
 export default api;
