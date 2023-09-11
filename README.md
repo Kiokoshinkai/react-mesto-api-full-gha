@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.97.131
+IP-адрес 51.250.77.58
 
 Frontend https://gammervvfront.nomoredomainsicu.ru/
 
