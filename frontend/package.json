@@ -1,6 +1,6 @@
 {
-  "homepage": "https://kiokoshinkai.github.io/react-mesto-auth/",
-  "name": "react-mesto-auth",
+  "homepage": "https://gammervvfront.nomoredomainsicu.ru/",
+  "name": "react-mesto-api-full-gha",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,7 +10,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^2.1.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -42,5 +42,9 @@
   "devDependencies": {
     "gh-pages": "^6.0.0",
     "jest": "^27.5.1"
-  }
+  },
+  "description": "**Интро**",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
