@@ -1,6 +1,3 @@
-//const token = "30890c08-2ed4-44b3-b5d6-ec734b5a14d4";
-//const url = "https://gammervvback.nomoredomainsicu.ru";
-
 class Api {
   constructor(settings) {
     this._headers = settings.headers;
@@ -25,21 +22,21 @@ class Api {
   }
 
   getUserData() {
-    return fetch(this._url + `users/me`, {
+    return fetch(this._url + `/users/me`, {
       headers: this._getHeaders(),
     })
     .then(res => this._getResponseData(res));
   }
 
   getInitialCards() {
-    return fetch(this._url + `cards`, {
+    return fetch(this._url + `/cards`, {
       headers: this._getHeaders(),
     })
     .then(res => this._getResponseData(res));
   }
 
   editProfile(input) {
-    return fetch(this._url + `users/me`, {
+    return fetch(this._url + `/users/me`, {
       method: "PATCH",
       headers: this._getHeaders(),
       body: JSON.stringify(input),
@@ -48,7 +45,7 @@ class Api {
   }
 
   addCard(input) {
-    return fetch(this._url + `cards`, {
+    return fetch(this._url + `/cards`, {
       method: "POST",
       headers: this._getHeaders(),
       body: JSON.stringify(input),
@@ -57,7 +54,7 @@ class Api {
   }
 
   deleteCard(id) {
-    return fetch(this._url + `cards/${id}`, {
+    return fetch(this._url + `/cards/${id}`, {
       method: "DELETE",
       headers: this._getHeaders(),
     })
@@ -65,7 +62,7 @@ class Api {
   }
 
   deleteLike(id) {
-    return fetch(this._url + `cards/${id}/likes`, {
+    return fetch(this._url + `/cards/${id}/likes`, {
       method: "DELETE",
       headers: this._getHeaders(),
     })
@@ -73,7 +70,7 @@ class Api {
   }
 
   addLike(id) {
-    return fetch(this._url + `cards/${id}/likes`, {
+    return fetch(this._url + `/cards/${id}/likes`, {
       method: "PUT",
       headers: this._getHeaders(),
     })
@@ -89,7 +86,7 @@ class Api {
   }
 
   editAvatar(data) {
-    return fetch(this._url + `users/me/avatar`, {
+    return fetch(this._url + `/users/me/avatar`, {
       method: "PATCH",
       headers: this._getHeaders(),
       body: JSON.stringify({ avatar: data }),
