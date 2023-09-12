@@ -56,13 +56,15 @@ function App() {
 
   // получить данные пользователя и начальные карточки
   React.useEffect(() => {
-    Promise.all([api.getUserData(), api.getInitialCards()])
+    if (isLoggedIn === true) {
+      Promise.all([api.getUserData(), api.getInitialCards()])
       .then(([userInfo, initialCards]) => {
         setCurrentUser(userInfo);
         setCards(initialCards);
       })
       .catch((err) => console.log(err));
-  }, []);
+    }
+  }, [isLoggedIn]);
 
   //токен
   React.useEffect(() => {
@@ -71,7 +73,7 @@ function App() {
       auth.checkToken(jwt).then((res) => {
         if (res) {
           setIsLoggedIn(true);
-          setIsEmail(res.data.email);
+          setIsEmail(res.email);
         }
       })
       .catch((err) => {
@@ -99,7 +101,7 @@ function App() {
   //обработать лайк
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
       .changeLikeCardStatus(card._id, !isLiked)
@@ -202,6 +204,7 @@ function App() {
   }
 
   function onSignOut() {
+    setCurrentUser('');
     setIsLoggedIn(false);
     setIsEmail(null);
     navigate("/sign-in");
