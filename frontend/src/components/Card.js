@@ -22,7 +22,7 @@ function Card({ card, onCardClick, onCardLike, onDeleteConfirmation }) {
   }
 
   return (
-    <article className="card" key={card.id}>
+    <article className="card" key={card._id}>
       {isOwn && (
         <button
           name="trash"
